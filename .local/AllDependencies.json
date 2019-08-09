@@ -1063,8 +1063,8 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "DTT ReFramework Template con Reporte",
-      "projectName": "DTT ReFramework Template con Reporte",
+      "projectUniqueName": "DTT ReFramework Template",
+      "projectName": "DTT ReFramework Template",
       "projectPath": "D:\\Users\\nicoerlichman\\Documents\\2 - Code Repos\\UiPath\\DTT-RPA-ReFramework-Template\\.local",
       "packagesPath": "C:\\Users\\nicoerlichman\\.nuget\\packages\\",
       "outputPath": "D:\\Users\\nicoerlichman\\Documents\\2 - Code Repos\\UiPath\\DTT-RPA-ReFramework-Template\\.local"
