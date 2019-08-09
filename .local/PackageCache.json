@@ -20,10 +20,10 @@
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\csvhelper/2.13.5\\lib/net40-client/CsvHelper.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\documentformat.openxml/2.5.0\\lib/DocumentFormat.OpenXml.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\microsoft.visualstudio.ole.interop/7.10.6071\\lib/Microsoft.VisualStudio.OLE.Interop.dll",
-        "C:\\Users\\nicoerlichman\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.OOXML.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.OpenXml4Net.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.OpenXmlFormats.dll",
+        "C:\\Users\\nicoerlichman\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\sharpziplib/1.0.0\\lib/net45/ICSharpCode.SharpZipLib.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.excel.activities/2.5.1\\lib/net452/UiPath.Excel.Activities.Design.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.excel.activities/2.5.1\\lib/net452/UiPath.Excel.Activities.dll",
@@ -80,10 +80,10 @@
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\caliburn.micro/3.0.1\\lib/net45/Caliburn.Micro.Platform.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\caliburn.micro/3.0.1\\lib/net45/System.Windows.Interactivity.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\caliburn.micro.core/3.0.1\\lib/net45/Caliburn.Micro.dll",
-        "C:\\Users\\nicoerlichman\\.nuget\\packages\\extended.wpf.toolkit/2.8.0\\lib/net40/Xceed.Wpf.AvalonDock.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\extended.wpf.toolkit/2.8.0\\lib/net40/Xceed.Wpf.AvalonDock.Themes.Aero.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\extended.wpf.toolkit/2.8.0\\lib/net40/Xceed.Wpf.AvalonDock.Themes.Metro.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\extended.wpf.toolkit/2.8.0\\lib/net40/Xceed.Wpf.AvalonDock.Themes.VS2010.dll",
+        "C:\\Users\\nicoerlichman\\.nuget\\packages\\extended.wpf.toolkit/2.8.0\\lib/net40/Xceed.Wpf.AvalonDock.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\extended.wpf.toolkit/2.8.0\\lib/net40/Xceed.Wpf.DataGrid.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\extended.wpf.toolkit/2.8.0\\lib/net40/Xceed.Wpf.Toolkit.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\humanizer.core/2.4.2\\lib/netstandard2.0/Humanizer.dll",
@@ -103,8 +103,8 @@
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.uiautomation.activities/18.4.5\\lib/net461/UiPath.Wizards.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.vision/1.2.0\\lib/net452/UiPath.NeuralNet.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.vision/1.2.0\\lib/net452/UiPath.Vision.Core.dll",
-        "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.vision/1.2.0\\lib/net452/UiPath.Vision.dll",
-        "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.vision/1.2.0\\lib/net452/UiPath.Vision.Package.dll"
+        "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.vision/1.2.0\\lib/net452/UiPath.Vision.Package.dll",
+        "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.vision/1.2.0\\lib/net452/UiPath.Vision.dll"
       ]
     }
   ],

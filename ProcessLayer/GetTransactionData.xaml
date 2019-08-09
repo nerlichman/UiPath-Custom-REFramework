@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>615,696</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>714.4,835.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetTransactionData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -63,25 +63,24 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: Get data from spreadsheets, databases, email, web API or UiPath server queues. If no new data, set out_TransactionItem to Nothing. &#xA;&#xA;For a linear process (not repetitive), set out_TransactionItem only for in_TransactionNumber 1 - first and only transaction. &#xA;&#xA;If the process is repeatable, set io_TransactionData once for in_TransactionNumber 1, then assign a new out_TransactionItem by using the in_TransactionNumber to index io_TransactionData. Be aware that, at the end of the io_TransactionData collection, it is your responsibility to set out_TransactionItem to Nothing, thus ending the process." DisplayName="GetTransactionData" sap:VirtualizedContainerService.HintSize="575,616" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="##Data Layer##&#xD;&#xA;Description: Get data from spreadsheets, databases, email, web API or UiPath server queues.&#xA;&#xA;- in_TransactionNumber variable holds the current transaction number&#xA;- in_RetryNumber holds the current retry number. &#xA;- Incrementation of these two counters is done at the framework layer, above this point. However, you control this process directly by configuring the MaxRetryNumber in the Config file.&#xA;- You control the end of the process directly, by setting io_TransactionItem to Nothing.&#xD;&#xA;&#xD;&#xA;For a linear process (not repetitive), set out_TransactionItem only for in_TransactionNumber 1 - first and only transaction. &#xA;If the process is repeatable, set io_TransactionData once for in_TransactionNumber 1, then assign a new io_TransactionItem by using the in_TransactionNumber to index io_TransactionData.  " DisplayName="GetTransactionData" sap:VirtualizedContainerService.HintSize="674.4,715.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[Not IsNothing(io_TransactionData) AndAlso in_TransactionNumber &lt;= io_TransactionData.Rows.Count]" DisplayName="-- CONTROL TO CHECK IF THERE IS DATA LEFT TO PROCESS -- " sap:VirtualizedContainerService.HintSize="553,330" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[Not IsNothing(io_TransactionData) AndAlso in_TransactionNumber &lt;= io_TransactionData.Rows.Count]" DisplayName="-- CHECK IF THERE IS DATA LEFT TO PROCESS -- " sap:VirtualizedContainerService.HintSize="636,402.4" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Then>
-        <Sequence DisplayName="Assign values" sap:VirtualizedContainerService.HintSize="264,184" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence DisplayName="Assign data" sap:VirtualizedContainerService.HintSize="297.6,252.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign DisplayName="Assign Transaction Item" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+          <Assign DisplayName="Assign Transaction Item" sap:VirtualizedContainerService.HintSize="259.2,60" sap2010:WorkflowViewState.IdRef="Assign_5">
             <Assign.To>
               <OutArgument x:TypeArguments="sd:DataRow">[out_TransactionItem]</OutArgument>
             </Assign.To>
@@ -89,16 +88,26 @@
               <InArgument x:TypeArguments="sd:DataRow">[io_TransactionData.Rows(in_TransactionNumber-1)]</InArgument>
             </Assign.Value>
           </Assign>
+          <Assign DisplayName="Assign TransactionID" sap:VirtualizedContainerService.HintSize="259.2,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[out_TransactionID]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">
+                <Literal x:TypeArguments="x:String" Value="" />
+              </InArgument>
+            </Assign.Value>
+          </Assign>
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Assign values" sap:VirtualizedContainerService.HintSize="264,184" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence DisplayName="No data left" sap:VirtualizedContainerService.HintSize="297.6,152.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign DisplayName="Assign Transaction Item" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+          <Assign DisplayName="Assign Transaction Item" sap:VirtualizedContainerService.HintSize="259.2,60" sap2010:WorkflowViewState.IdRef="Assign_7">
             <Assign.To>
               <OutArgument x:TypeArguments="sd:DataRow">[out_TransactionItem]</OutArgument>
             </Assign.To>
