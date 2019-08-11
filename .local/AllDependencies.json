@@ -1063,11 +1063,11 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "***REMOVED*** ReFramework Template",
-      "projectName": "***REMOVED*** ReFramework Template",
-      "projectPath": "D:\\Users\\nicoerlichman\\Documents\\2 - Code Repos\\UiPath\\***REMOVED***-RPA-ReFramework-Template\\.local",
+      "projectUniqueName": "Custom ReFramework",
+      "projectName": "Custom ReFramework",
+      "projectPath": "D:\\Users\\nicoerlichman\\Documents\\2 - Code Repos\\UiPath\\Custom-ReFramework\\.local",
       "packagesPath": "C:\\Users\\nicoerlichman\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\nicoerlichman\\Documents\\2 - Code Repos\\UiPath\\***REMOVED***-RPA-ReFramework-Template\\.local"
+      "outputPath": "D:\\Users\\nicoerlichman\\Documents\\2 - Code Repos\\UiPath\\Custom-ReFramework\\.local"
     },
     "frameworks": {
       "net461": {

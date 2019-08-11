@@ -1,6 +1,6 @@
 {
-  "name": "***REMOVED*** ReFramework Template",
-  "description": "Customized ReFramework Template ***REMOVED***",
+  "name": "Custom REFramework",
+  "description": "Customized UiPath REFramework.\r\nDeveloped to be used by the Consulting RPA team of ***REMOVED***",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Credentials.Activities": "[1.1.6479.13204]",
