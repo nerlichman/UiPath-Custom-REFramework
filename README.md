@@ -63,4 +63,5 @@ Ignore errors being generated for the moment.
 
 8. Execute and have fun!
 
-![alt text](https://raw.githubusercontent.com/nerlichman/UiPath-Custom-REFramework/MainStateMachine.PNG)
+![MainStateMachine](https://github.com/nerlichman/UiPath-Custom-REFramework/blob/master/MainStateMachine.PNG)
+
