@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="956,901.6" sap2010:WorkflowViewState.IdRef="Main2_1" ImplementationVersion="2.0" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="956,941.6" sap2010:WorkflowViewState.IdRef="Main2_1" ImplementationVersion="2.0" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="26">
       <x:String>System.Activities</x:String>
@@ -56,7 +56,6 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -302,7 +301,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <TryCatch.Try>
-                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Parameter in_ErrorMessage is set with:&#xD;&#xA; - &quot;&quot; if SystemError Is Nothing&#xD;&#xA; - SystemError.Message if a BRE was thrown&#xD;&#xA; - Config(&quot;Report_ApplicationExceptionMessage&quot;) if any other type of exception was thrown" DisplayName="Invoke SetReportResult workflow" sap:VirtualizedContainerService.HintSize="330.4,180" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_44" UnSafe="False" WorkflowFileName="Framework\SetReportStatus.xaml">
+                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Parameter in_ErrorMessage is set with:&#xA; - &quot;&quot; if SystemError Is Nothing&#xA; - SystemError.Message if a BRE was thrown&#xA; - Config(&quot;Report_ApplicationExceptionMessage&quot;) if any other type of exception was thrown" DisplayName="Invoke SetReportResult workflow" sap:VirtualizedContainerService.HintSize="330.4,180" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_44" UnSafe="False" WorkflowFileName="Framework\SetReportStatus.xaml">
                               <ui:InvokeWorkflowFile.Arguments>
                                 <InArgument x:TypeArguments="x:Int32" x:Key="in_TransactionNumber">[cInt(SystemReserved.Item("TransactionNumber"))]</InArgument>
                                 <InArgument x:TypeArguments="x:String" x:Key="in_ErrorMessage">[If (SystemError Is Nothing, "", If(SystemError IsNot Nothing ANDALSO SystemError.GetType.Name = "BusinessRuleException", SystemError.message, Config("Report_ApplicationExceptionMessage").ToString))]</InArgument>
@@ -708,7 +707,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <Transition.To>
-                            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="##Framework Layer##&#xA;Process stops here as a result of no more data(TransactionItem is Nothing), an exception in the Data Layer, successive exceptions in the Init state." DisplayName="End Process State" sap:VirtualizedContainerService.HintSize="598.4,1566.4" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+                            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="##Framework Layer##&#xA;Process stops here as a result of no more data(TransactionItem is Nothing), an exception in the Data Layer, successive exceptions in the Init state." DisplayName="End Process State" sap:VirtualizedContainerService.HintSize="294.4,170.4" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
                               <State.Entry>
                                 <Sequence DisplayName="End Process" sap:VirtualizedContainerService.HintSize="556.8,1392.8" sap2010:WorkflowViewState.IdRef="Sequence_40">
                                   <sap:WorkflowViewStateService.ViewState>
@@ -1209,7 +1208,6 @@
       <Variable x:TypeArguments="s:Exception" Name="SystemError" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="Config" />
       <Variable x:TypeArguments="x:String" Name="TransactionID" />
-      <Variable x:TypeArguments="sd:DataTable" Name="TransactionData" />
       <Variable x:TypeArguments="sd:DataTable" Name="ProcessData" />
       <Variable x:TypeArguments="sd:DataTable" Name="DTReport" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:Annotation.AnnotationText="SystemReserved is a dictionary of parameters which only the framework itself can change the values during runtime.&#xA;&#xA;Next there's a list of the configurations the dictionary has, and their default value:&#xA;  • TransactionNumber = 1 &#xA;  • RetryNumber = 0 &#xA;  • InitRetryNumber = 0 &#xA;  • RobotFail = &quot;&quot; &#xA;  • InputFolder = &quot;Data\Input&quot; &#xA;  • OutputFolder = &quot;Data\Output&quot; &#xA;  • TempFolder = &quot;Data\Temp&quot; &#xA;  • isQueueItem = False&#xA;" Default="[New system.Collections.Generic.Dictionary(Of String, Object) From { {&quot;TransactionNumber&quot;, 1}, {&quot;RetryNumber&quot;, 0}, {&quot;InitRetryNumber&quot;, 0}, {&quot;RobotFail&quot;, &quot;&quot;}, {&quot;InputFolder&quot;, &quot;Data\Input&quot;}, {&quot;OutputFolder&quot;, &quot;Data\Output&quot;}, {&quot;TempFolder&quot;, &quot;Data\Temp&quot;}, {&quot;ReportsFolder&quot;, &quot;Data\Reports&quot;}, {&quot;isQueueItem&quot;, False}}]" Name="SystemReserved" />
