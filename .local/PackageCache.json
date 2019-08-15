@@ -54,7 +54,7 @@
       "Assemblies": [
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\csvhelper/2.13.5\\lib/net40-client/CsvHelper.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\microsoft.rest.clientruntime/2.3.10\\lib/net452/Microsoft.Rest.ClientRuntime.dll",
-        "C:\\Users\\nicoerlichman\\.nuget\\packages\\newtonsoft.json/10.0.3\\lib/net45/Newtonsoft.Json.dll",
+        "C:\\Users\\nicoerlichman\\.nuget\\packages\\newtonsoft.json/11.0.2\\lib/net45/Newtonsoft.Json.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.system.activities/18.4.2\\lib/net461/ActiproSoftware.Docking.Wpf.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.system.activities/18.4.2\\lib/net461/ActiproSoftware.Ribbon.Wpf.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.system.activities/18.4.2\\lib/net461/ActiproSoftware.Shared.Wpf.dll",
@@ -105,6 +105,20 @@
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.vision/1.2.0\\lib/net452/UiPath.Vision.Core.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.vision/1.2.0\\lib/net452/UiPath.Vision.Package.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.vision/1.2.0\\lib/net452/UiPath.Vision.dll"
+      ]
+    },
+    {
+      "Package": {
+        "Id": "UiPath.WebAPI.Activities",
+        "Version": "1.4.0"
+      },
+      "Assemblies": [
+        "C:\\Users\\nicoerlichman\\.nuget\\packages\\avalonedit/5.0.3\\lib/Net40/ICSharpCode.AvalonEdit.dll",
+        "C:\\Users\\nicoerlichman\\.nuget\\packages\\newtonsoft.json/11.0.2\\lib/net45/Newtonsoft.Json.dll",
+        "C:\\Users\\nicoerlichman\\.nuget\\packages\\restsharp/106.3.1\\lib/net452/RestSharp.dll",
+        "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.webapi.activities/1.4.0\\lib/net452/UiPath.Web.Activities.Design.dll",
+        "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.webapi.activities/1.4.0\\lib/net452/UiPath.Web.Activities.dll",
+        "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.webapi.activities/1.4.0\\lib/net452/UiPath.Web.dll"
       ]
     }
   ],
@@ -192,7 +206,7 @@
     },
     "Newtonsoft.Json": {
       "Id": "Newtonsoft.Json",
-      "Version": "10.0.3",
+      "Version": "11.0.2",
       "Dependencies": []
     },
     "NPOI": {
@@ -204,6 +218,11 @@
           "Item2": "[1.0.0, )"
         }
       ]
+    },
+    "RestSharp": {
+      "Id": "RestSharp",
+      "Version": "106.3.1",
+      "Dependencies": []
     },
     "SharpZipLib": {
       "Id": "SharpZipLib",
@@ -321,6 +340,24 @@
       "Id": "UiPath.Vision",
       "Version": "1.2.0",
       "Dependencies": []
+    },
+    "UiPath.WebAPI.Activities": {
+      "Id": "UiPath.WebAPI.Activities",
+      "Version": "1.4.0",
+      "Dependencies": [
+        {
+          "Item1": "AvalonEdit",
+          "Item2": "[5.0.3, )"
+        },
+        {
+          "Item1": "Newtonsoft.Json",
+          "Item2": "[11.0.2, )"
+        },
+        {
+          "Item1": "RestSharp",
+          "Item2": "[106.3.1, )"
+        }
+      ]
     }
   }
 }
