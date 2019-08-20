@@ -1,6 +1,6 @@
 {
   "name": "Custom REFramework",
-  "description": "Customized UiPath REFramework.\r\nDeveloped to be used by the Consulting RPA team of ***REMOVED***",
+  "description": "Customized UiPath REFramework.",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Credentials.Activities": "[1.1.6479.13204]",
@@ -10,29 +10,21 @@
     "UiPath.UIAutomation.Activities": "19.4.2",
     "UiPath.WebAPI.Activities": "1.4.0"
   },
-  "webServices": [],
-  "schemaVersion": "4.0",
-  "studioVersion": "19.7.0.74",
+  "schemaVersion": "3.2",
+  "studioVersion": "19.6.0",
   "projectVersion": "1.0.0",
   "runtimeOptions": {
     "autoDispose": false,
     "isPausable": true,
-    "requiresUserInteraction": true,
-    "supportsPersistence": false,
     "excludedLoggedData": [
       "Private:*",
-      "*password*",
       "*assword*"
-    ],
-    "executionType": "Workflow"
+    ]
   },
-  "designOptions": {
-    "projectProfile": "Developement",
-    "outputType": "Process",
-    "libraryOptions": {
-      "includeOriginalXaml": false,
-      "privateWorkflows": []
-    }
+  "expressionLanguage": "VisualBasic",
+  "libraryOptions": {
+    "includeOriginalXaml": false,
+    "privateWorkflows": []
   },
-  "expressionLanguage": "VisualBasic"
+  "webServices": []
 }

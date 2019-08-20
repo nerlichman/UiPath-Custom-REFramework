@@ -9,7 +9,7 @@ Features:
 * Reusability: Works for any type of process, Independent of Data sources (QueueItems, local excel files, Database data, API retrieved data)
 * Maintain, extend and upgrade: Easy to maintain, thanks to code lightness and SOC. Extend to achieve process behaviour by editing 6 empty workflows that connect to the Main.xaml in a standard way. Upgrade or extend framework independently of business code, by editing only one file, the Main.xaml.
 * Exception recovery and retry: If all recovery options are exhausted, closing and restarting the application environment while remembering data is what humans do too. Top-level exception recovery is managed by the framework layer with Retry rules you can easily configure.
--------* Audit: Keep track of the robot's work, with as much detail and privacy as you choose with the new Workblock concept; Add business information of your choosing to the published log.
+* Audit: Keep track of the robot's work, with as much detail and privacy as you choose with the new Workblock concept; Add business information of your choosing to the published log.
 
 
 Details:
@@ -56,6 +56,8 @@ Ignore errors being generated for the moment.
 *ProcessLayer\CloseAllApplications.xaml* - write business code to close all applications you have opened at previous step.
 
 *ProcessLayer\KillAllProcesses.xaml* - write business code to kill all applications (only invoked when applications not responding).
+
+*ProcessLayer\GetProcessData.xaml* - write business code to fetch transaction data and other data that is required during the process execution.
 
 *ProcessLayer\GetTransactionData.xaml* - write business code to fetch data for the current transaction and save/write it to the io_TransactionItem variable. Decide when the process will end by setting io_TransactinItem to Nothing. Make use of external iterator in_TransactionNumber and in_RetryNumber if io_TransactionItem is an element of io_TransactionData. (Ex. io_TransactionItem = io_TransactionData(in_TransactionNumber - 1).
 
