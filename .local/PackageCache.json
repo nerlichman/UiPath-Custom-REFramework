@@ -48,20 +48,6 @@
     },
     {
       "Package": {
-        "Id": "UiPath.WebAPI.Activities",
-        "Version": "1.4.0"
-      },
-      "Assemblies": [
-        "C:\\Users\\nicoerlichman\\.nuget\\packages\\avalonedit/5.0.3\\lib/Net40/ICSharpCode.AvalonEdit.dll",
-        "C:\\Users\\nicoerlichman\\.nuget\\packages\\newtonsoft.json/11.0.2\\lib/net45/Newtonsoft.Json.dll",
-        "C:\\Users\\nicoerlichman\\.nuget\\packages\\restsharp/106.3.1\\lib/net452/RestSharp.dll",
-        "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.webapi.activities/1.4.0\\lib/net452/UiPath.Web.Activities.Design.dll",
-        "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.webapi.activities/1.4.0\\lib/net452/UiPath.Web.Activities.dll",
-        "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.webapi.activities/1.4.0\\lib/net452/UiPath.Web.dll"
-      ]
-    },
-    {
-      "Package": {
         "Id": "UiPath.System.Activities",
         "Version": "19.4.1"
       },
@@ -119,11 +105,25 @@
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.vision/1.5.0\\lib/net452/UiPath.Vision.AbbyyFRECommon.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.vision/1.5.0\\lib/net452/UiPath.Vision.AzureComputerVision.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.vision/1.5.0\\lib/net452/UiPath.Vision.Core.dll",
-        "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.vision/1.5.0\\lib/net452/UiPath.Vision.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.vision/1.5.0\\lib/net452/UiPath.Vision.GoogleCloud.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.vision/1.5.0\\lib/net452/UiPath.Vision.Microsoft.dll",
         "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.vision/1.5.0\\lib/net452/UiPath.Vision.MicrosoftCloud.dll",
-        "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.vision/1.5.0\\lib/net452/UiPath.Vision.Tesseract.dll"
+        "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.vision/1.5.0\\lib/net452/UiPath.Vision.Tesseract.dll",
+        "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.vision/1.5.0\\lib/net452/UiPath.Vision.dll"
+      ]
+    },
+    {
+      "Package": {
+        "Id": "UiPath.WebAPI.Activities",
+        "Version": "1.4.0"
+      },
+      "Assemblies": [
+        "C:\\Users\\nicoerlichman\\.nuget\\packages\\avalonedit/5.0.3\\lib/Net40/ICSharpCode.AvalonEdit.dll",
+        "C:\\Users\\nicoerlichman\\.nuget\\packages\\newtonsoft.json/11.0.2\\lib/net45/Newtonsoft.Json.dll",
+        "C:\\Users\\nicoerlichman\\.nuget\\packages\\restsharp/106.3.1\\lib/net452/RestSharp.dll",
+        "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.webapi.activities/1.4.0\\lib/net452/UiPath.Web.Activities.Design.dll",
+        "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.webapi.activities/1.4.0\\lib/net452/UiPath.Web.Activities.dll",
+        "C:\\Users\\nicoerlichman\\.nuget\\packages\\uipath.webapi.activities/1.4.0\\lib/net452/UiPath.Web.dll"
       ]
     }
   ],

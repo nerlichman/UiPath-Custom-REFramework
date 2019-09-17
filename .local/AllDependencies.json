@@ -1136,9 +1136,9 @@
     "restore": {
       "projectUniqueName": "Custom REFramework",
       "projectName": "Custom REFramework",
-      "projectPath": "D:\\Users\\nicoerlichman\\Documents\\2 - Code Repos\\UiPath\\Custom-REFramework\\.local",
+      "projectPath": "D:\\Users\\nicoerlichman\\Documents\\2-Code_Repos\\UiPath\\Custom-REFramework\\.local",
       "packagesPath": "C:\\Users\\nicoerlichman\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\nicoerlichman\\Documents\\2 - Code Repos\\UiPath\\Custom-REFramework\\.local"
+      "outputPath": "D:\\Users\\nicoerlichman\\Documents\\2-Code_Repos\\UiPath\\Custom-REFramework\\.local"
     },
     "frameworks": {
       "net461": {
