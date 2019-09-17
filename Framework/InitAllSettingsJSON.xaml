@@ -1,15 +1,4 @@
-﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="test"
- xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
- xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
- xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
- xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json"
- xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
- xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
- xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
- xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
- xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
- xmlns:ui="http://schemas.uipath.com/workflow/activities"
- xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="test" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_ConfigurationFilePath" Type="InArgument(x:String)" />
     <x:Property Name="in_TemplateConfigurationFilePath" Type="InArgument(x:String)" />
@@ -18,6 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>733,1324</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>test_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -57,122 +47,101 @@
       <AssemblyReference>System.Core</AssemblyReference>
       <AssemblyReference>System.Xml</AssemblyReference>
       <AssemblyReference>System.Xml.Linq</AssemblyReference>
-      <AssemblyReference>UiPath.Core</AssemblyReference>
-      <AssemblyReference>UiPath.Core.Activities</AssemblyReference>
       <AssemblyReference>PresentationFramework</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
       <AssemblyReference>PresentationCore</AssemblyReference>
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="The workflow reads a JSON file from the disk and outputs a JObjectjsonConfiguration that can be passed and used throughout the program. If the templatepath is defined and the template file exists, it validates the structure of the JSON configuration file against the template. If the templates do not match an exception is thrown." DisplayName="InitAllSettingsJSON" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="The workflow reads a JSON file from the disk and outputs a JObjectjsonConfiguration that can be passed and used throughout the program. If the templatepath is defined and the template file exists, it validates the structure of the JSON configuration file against the template. If the templates do not match an exception is thrown." DisplayName="InitAllSettingsJSON" sap:VirtualizedContainerService.HintSize="713,1224" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="configurationContent" />
-      <Variable x:TypeArguments="x:String" Name="templateContent" />
-      <Variable x:TypeArguments="njl:JObject" Name="jsonTemplate" />
-      <Variable x:TypeArguments="njl:JObject" Name="jsonConfiguration" />
+      <Variable x:TypeArguments="x:String" Name="ConfigurationContent" />
+      <Variable x:TypeArguments="njl:JObject" Name="JsonConfiguration" />
     </Sequence.Variables>
-    <Assign DisplayName="Read input JSON content" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign DisplayName="Read input JSON content" sap:VirtualizedContainerService.HintSize="671,60" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[configurationContent]</OutArgument>
+        <OutArgument x:TypeArguments="x:String">[ConfigurationContent]</OutArgument>
       </Assign.To>
       <Assign.Value>
         <InArgument x:TypeArguments="x:String">[file.ReadAllText(in_ConfigurationFilePath)]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Parse and store in JObject" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="Parse and store in JObject" sap:VirtualizedContainerService.HintSize="671,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
-        <OutArgument x:TypeArguments="njl:JObject">[jsonConfiguration]</OutArgument>
+        <OutArgument x:TypeArguments="njl:JObject">[JsonConfiguration]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="njl:JObject">[JObject.Parse(configurationContent)]</InArgument>
+        <InArgument x:TypeArguments="njl:JObject">[JObject.Parse(ConfigurationContent)]</InArgument>
       </Assign.Value>
     </Assign>
-    <If Condition="[not(string.IsNullOrEmpty(in_TemplateConfigurationFilePath)) AndAlso file.Exists(in_TemplateConfigurationFilePath)]" DisplayName="If we must match a template" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[not(string.IsNullOrEmpty(in_TemplateConfigurationFilePath)) AndAlso file.Exists(in_TemplateConfigurationFilePath)]" DisplayName="If we must match a template" sap:VirtualizedContainerService.HintSize="671,775" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Match template" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Match template" sap:VirtualizedContainerService.HintSize="526,627" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
-            <Variable x:TypeArguments="x:String" Name="firstDifference" />
+            <Variable x:TypeArguments="x:String" Name="FirstDifference" />
+            <Variable x:TypeArguments="x:String" Name="TemplateContent" />
+            <Variable x:TypeArguments="njl:JObject" Name="JsonTemplate" />
           </Sequence.Variables>
-          <Assign DisplayName="Read Template JSON content" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Read Template JSON content" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_3">
             <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[templateContent]</OutArgument>
+              <OutArgument x:TypeArguments="x:String">[TemplateContent]</OutArgument>
             </Assign.To>
             <Assign.Value>
               <InArgument x:TypeArguments="x:String">[file.ReadAllText(in_TemplateConfigurationFilePath)]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Parse and store in JObject" sap2010:WorkflowViewState.IdRef="Assign_4">
+          <Assign DisplayName="Parse and store in JObject with template" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_4">
             <Assign.To>
-              <OutArgument x:TypeArguments="njl:JObject">[jsonTemplate]</OutArgument>
+              <OutArgument x:TypeArguments="njl:JObject">[JsonTemplate]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="njl:JObject">[JObject.Parse(templateContent)]</InArgument>
+              <InArgument x:TypeArguments="njl:JObject">[JObject.Parse(TemplateContent)]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ValidateJsonConfiguration workflow" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\ValidateJsonConfiguration.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ValidateJsonConfiguration workflow" sap:VirtualizedContainerService.HintSize="484,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\ValidateJsonConfiguration.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_difference">[firstDifference]</OutArgument>
-              <InArgument x:TypeArguments="njl:JObject" x:Key="in_jsonTemplate">[jsonTemplate]</InArgument>
-              <InArgument x:TypeArguments="njl:JObject" x:Key="in_jsonConfiguration">[jsonConfiguration]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_difference">[FirstDifference]</OutArgument>
+              <InArgument x:TypeArguments="njl:JObject" x:Key="in_jsonTemplate">[JsonTemplate]</InArgument>
+              <InArgument x:TypeArguments="njl:JObject" x:Key="in_jsonConfiguration">[JsonConfiguration]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <If Condition="[not(string.IsNullOrEmpty(firstDifference))]" DisplayName="If template and configuration do not match" sap2010:WorkflowViewState.IdRef="If_2">
+          <If Condition="[not(string.IsNullOrEmpty(FirstDifference))]" DisplayName="If template and configuration do not match" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_2">
             <If.Then>
-              <Throw DisplayName="Throw System Exception" Exception="[new System.Exception(&quot;Configuration file does not match the template: &quot; + firstDifference)]" sap2010:WorkflowViewState.IdRef="Throw_1" />
+              <Throw DisplayName="Throw System Exception" Exception="[new System.Exception(&quot;Configuration file does not match the template: &quot; + FirstDifference)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
             </If.Then>
           </If>
         </Sequence>
       </If.Then>
     </If>
-    <Assign DisplayName="Assign output" sap2010:WorkflowViewState.IdRef="Assign_5">
+    <Assign DisplayName="Assign output" sap:VirtualizedContainerService.HintSize="671,60" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="njl:JObject">[out_JsonConfiguration]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="njl:JObject">[jsonConfiguration]</InArgument>
+        <InArgument x:TypeArguments="njl:JObject">[JsonConfiguration]</InArgument>
       </Assign.Value>
     </Assign>
-    <sads:DebugSymbol.Symbol>d4gBQzpcVXNlcnNcbWloYWkuZHVuYXJlYW51XERvY3VtZW50c1xVaVBhdGhcVGVtcGxhdGVzXFVpUGF0aCBFbmNoYW5jZWQgUkVGcmFtZXdvcmtcRW5oYW5jZWQtUkVGcmFtZXdvcmtcRnJhbWV3b3JrXEluaXRBbGxTZXR0aW5nc0pTT04ueGFtbBxIA40BDgIBAU8FVg4CASRXBV4OAgEgXwWDAQoCAQeEAQWLAQ4CAQJUMFRcAgEnUTFRRwIBJVwzXFgCASNZNFlHAgEhXxNfiAECAQhhCYEBFAIBCYkBM4kBRgIBBYYBNIYBSwIBA2ULbBQCARxtC3QUAgEYdQt7IwIBEHwLgAEQAgEKajZqagIBH2c3Z0gCAR1yOXJZAgEbbzpvSAIBGXlWeWkCARZ4UXhfAgEUd053XwIBEnXMAXX2AQIBEXwZfEcCAQt+D37aAQIBDX5Ffq0BAgEO</sads:DebugSymbol.Symbol>
   </Sequence>
-  <sap2010:WorkflowViewState.ViewStateManager>
-    <sap2010:ViewStateManager>
-      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="611,60" />
-      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="611,60" />
-      <sap2010:ViewStateData Id="Assign_3" sap:VirtualizedContainerService.HintSize="464,60" />
-      <sap2010:ViewStateData Id="Assign_4" sap:VirtualizedContainerService.HintSize="464,60" />
-      <sap2010:ViewStateData Id="InvokeWorkflowFile_1" sap:VirtualizedContainerService.HintSize="464,87" />
-      <sap2010:ViewStateData Id="Throw_1" sap:VirtualizedContainerService.HintSize="200,22" />
-      <sap2010:ViewStateData Id="If_2" sap:VirtualizedContainerService.HintSize="464,208" />
-      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="486,659">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="611,807">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Assign_5" sap:VirtualizedContainerService.HintSize="611,60" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="633,1303">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="test_1" sap:VirtualizedContainerService.HintSize="673,1383" />
-    </sap2010:ViewStateManager>
-  </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>
