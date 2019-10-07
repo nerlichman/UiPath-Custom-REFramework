@@ -36,3 +36,7 @@
 ehthumbs.db
 Thumbs.db
 desktop.ini
+
+
+# UiPath generated files #
+.local/*
