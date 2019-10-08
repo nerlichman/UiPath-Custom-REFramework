@@ -2,6 +2,7 @@
 **Custom Robotic Enterprise Framework**
 
 A UiPath Studio template upon which you can build, test and run attended and unattended business processes.
+This framework was first a customization of standar REF created through UiPath Studio, see the [oficial repo](https://github.com/UiPath/ReFrameWork). While working in new features I decided to implement some ideas from the [Enhanced-REFramework](https://github.com/mihhdu/Enhanced-REFramework),
 
 Features:
 * Low code signature: A handful of clearly written, commented reusable functions that anyone can understand and a clearly commented Main.xaml bringing structure to the process design architecture.
@@ -14,11 +15,12 @@ Features:
 
 Details:
 
-* built on top of *Transactional Business Process* template
-* using *State Machine* layout for the phases of automation project
-* offering high level exception handling and application recovery
-* keeps external settings in *Config.xlsx* file and Orchestrator assets
-* pulls credentials from *Credential Manager* and Orchestrator assets
+* composed of workflows that record hierarchical and execution data in a consistent way, termed Workblocks.
+* using *State Machine* layout.
+* offering high level exception handling and application recovery.
+* offer a mechanism to abort process execution in certain cases where continuing is destructive
+* keeps external settings in *Data\Config.xlsx* file and Orchestrator assets.
+* pulls credentials from *Credential Manager* and Orchestrator assets.
 * takes screenshots in case of application exceptions.
 * provides extra utility workflows.
 
@@ -45,7 +47,7 @@ Ignore errors being generated for the moment.
 
 5. Open *ProcessLayer\ProcessTransaction.xaml* and change io_TransactionItem's datatype to match the one you set up in the Main.xaml file.
 
-6. Open Main.xaml and update the interfaces to the functions in the **GET TRANSACTION DATA** and **PROCESS TRANSACTION** states by clicking the import button. The errors from point 1. should now disappear.
+6. Open Main.xaml and update the interfaces to the functions in the **GET/SET TRANSACTION DATA** and **PROCESS TRANSACTION** states by clicking the import button. The errors from point 1. should now disappear.
 
 7. Begin writing business code in the workflows located in the *ProcessLayer* folder
 
@@ -59,7 +61,7 @@ Ignore errors being generated for the moment.
 
 *ProcessLayer\GetProcessData.xaml* - write business code to fetch transaction data and other data that is required during the process execution.
 
-*ProcessLayer\GetTransactionData.xaml* - write business code to fetch data for the current transaction and save/write it to the io_TransactionItem variable. Decide when the process will end by setting io_TransactinItem to Nothing. Make use of external iterator in_TransactionNumber and in_RetryNumber if io_TransactionItem is an element of io_TransactionData. (Ex. io_TransactionItem = io_TransactionData(in_TransactionNumber - 1).
+*ProcessLayer\GetSetTransactionData.xaml* - write business code to fetch data for the current transaction and save/write it to the io_TransactionItem variable. Decide when the process will end by setting io_TransactinItem to Nothing. Make use of external iterator in_TransactionNumber and in_RetryNumber if io_TransactionItem is an element of io_TransactionData. (Ex. io_TransactionItem = io_TransactionData(in_TransactionNumber - 1).
 
 *ProcessLayer\ProcessTransaction.xaml* - write business code to use applications that are open and data from io_TransactionItem and complete the transaction. At the end of the transaction, take the applications to the page they were at when you began the transaction.
 
