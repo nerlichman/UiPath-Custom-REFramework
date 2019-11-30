@@ -78,7 +78,7 @@
     <Flowchart.StartNode>
       <x:Reference>__ReferenceID3</x:Reference>
     </Flowchart.StartNode>
-    <FlowDecision x:Name="__ReferenceID3" Condition="[Not IsNothing(in_ErrorMessage)]" DisplayName="Hay Error?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+    <FlowDecision x:Name="__ReferenceID3" Condition="[Not String.IsNullOrWhiteSpace(in_ErrorMessage)]" DisplayName="Hay Error?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -97,7 +97,7 @@
               <av:PointCollection x:Key="ConnectorLocation">140,280.5 140,350 190,350</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Handle Error" sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_12">
+          <Sequence DisplayName="Handle Error" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_12">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
