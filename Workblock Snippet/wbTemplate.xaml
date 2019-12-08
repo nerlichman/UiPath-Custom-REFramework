@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>458,1302</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>628,1419</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>wbTemplate_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -53,9 +53,10 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <TryCatch sap2010:Annotation.AnnotationText="#Process Logic Layer#&#xA;Description: &#xA;&#xA;Pre Condition: &#xA;Post Condtion: &#xA;&#xA;##############&#xA;Deployment instructions: &#xA;Add the workblock snippet folder to your Studio library for easy insertion of new workblock.&#xA;&#xA;After inserting:&#xA;This workblock template should be used in a standalone workflow. You just need to create the workblock interface as workflow arguments.&#xA;&#xA; + in_WbParentPath &lt;String&gt; : the parent wb's path.  If It is the first workblock you are adding to the project, leave it empty. Otherwise, pass it's parent path.&#xA;&#xA;##############" DisplayName="workblock" sap:VirtualizedContainerService.HintSize="438,1202" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+  <TryCatch sap2010:Annotation.AnnotationText="#Process Logic Layer#&#xA;Description: &#xA;&#xA;Pre Condition: &#xA;Post Condtion: &#xA;&#xA;##############&#xA;Deployment instructions: &#xA;Add the workblock snippet folder to your Studio library for easy insertion of new workblock.&#xA;&#xA;After inserting:&#xA;This workblock template should be used in a standalone workflow. You just need to create the workblock interface as workflow arguments.&#xA;&#xA; + in_WbParentPath &lt;String&gt; : the parent wb's path.  If It is the first workblock you are adding to the project, leave it empty. Otherwise, pass it's parent path.&#xA;&#xA;##############" DisplayName="workblock" sap:VirtualizedContainerService.HintSize="608,1319" sap2010:WorkflowViewState.IdRef="TryCatch_1">
     <TryCatch.Variables>
       <Variable x:TypeArguments="x:String" Name="WbPath" />
       <Variable x:TypeArguments="x:String" Name="WbName" />
@@ -194,10 +195,10 @@
       </Sequence>
     </TryCatch.Try>
     <TryCatch.Catches>
-      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="574,875" sap2010:WorkflowViewState.IdRef="Catch`1_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
@@ -205,16 +206,16 @@
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Catch, log and rethrow" sap:VirtualizedContainerService.HintSize="242,322" sap2010:WorkflowViewState.IdRef="Sequence_26">
+          <Sequence DisplayName="Catch, log and rethrow" sap:VirtualizedContainerService.HintSize="568,806" sap2010:WorkflowViewState.IdRef="Sequence_26">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence sap2010:Annotation.AnnotationText="Failed logging for workblock. &#xA;You should only set transaction status if you use a QueueItem, otherwise failed logging should remain unchanged." DisplayName="wb Logging Failed" sap:VirtualizedContainerService.HintSize="200,168" sap2010:WorkflowViewState.IdRef="Sequence_25">
+            <Sequence sap2010:Annotation.AnnotationText="Failed logging for workblock. &#xA;You should only set transaction status if you use a QueueItem, otherwise failed logging should remain unchanged." DisplayName="wb Logging Failed" sap:VirtualizedContainerService.HintSize="526,652" sap2010:WorkflowViewState.IdRef="Sequence_25">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
@@ -234,9 +235,9 @@
                 </sap:WorkflowViewStateService.ViewState>
               </ui:AddLogFields>
               <If Condition="[if (exception isNot Nothing ANDALSO exception.GetType.Name = &quot;BusinessRuleException&quot;, true, false)]" DisplayName="If AppEx Or BRE" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_1" />
-              <ui:LogMessage DisplayName="Log execution ended with error message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[wbPath + &quot; execution ended with exception message: &quot;+exception.Message]" />
+              <ui:LogMessage DisplayName="Log execution ended with error message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[wbPath + &quot; execution ended with exception message: &quot;+exception.Message + If(exception.InnerException isNot Nothing,&quot; And inner exception message: &quot;+exception.InnerException.Message,&quot;&quot;)]" />
             </Sequence>
-            <Rethrow sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+            <Rethrow sap:VirtualizedContainerService.HintSize="526,22" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
           </Sequence>
         </ActivityAction>
       </Catch>
