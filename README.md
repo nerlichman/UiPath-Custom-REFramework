@@ -2,7 +2,7 @@
 **Custom Robotic Enterprise Framework**
 
 A UiPath Studio template upon which you can build, test and run attended and unattended business processes.
-This framework was first a customization of standar REF created through UiPath Studio, see the [oficial repo](https://github.com/UiPath/ReFrameWork). While working in new features I decided to implement some ideas from the [Enhanced-REFramework](https://github.com/mihhdu/Enhanced-REFramework),
+This framework was first a customization of standar REF created through UiPath Studio, see the [official repo](https://github.com/UiPath/ReFrameWork) by [@UiPath](https://github.com/UiPath). While working in new features I decided to implement some ideas from the [Enhanced-REFramework](https://github.com/mihhdu/Enhanced-REFramework) by [@mihhdu](https://github.com/mihhdu).
 
 Features:
 * Low code signature: A handful of clearly written, commented reusable functions that anyone can understand and a clearly commented Main.xaml bringing structure to the process design architecture.
@@ -11,6 +11,7 @@ Features:
 * Maintain, extend and upgrade: Easy to maintain, thanks to code lightness and SOC. Extend to achieve process behaviour by editing 6 empty workflows that connect to the Main.xaml in a standard way. Upgrade or extend framework independently of business code, by editing only one file, the Main.xaml.
 * Exception recovery and retry: If all recovery options are exhausted, closing and restarting the application environment while remembering data is what humans do too. Top-level exception recovery is managed by the framework layer with Retry rules you can easily configure.
 * Audit: Keep track of the robot's work, with as much detail and privacy as you choose with the new Workblock concept; Add business information of your choosing to the published log.
+* Functional reporting: embbeded reporting for transactional process. If set in the config file, it will create an excel report with 3 columns by default: Transaction Number (ID), result and a message (used by default only on errors). It also allows to add more columns from ProcessData table just by editing the filter activity inside InitReport.xaml workflow.
 
 
 Details:
@@ -30,6 +31,7 @@ Details:
 * UiPath.Excel.Activities
 * UiPath.Mail.Activities
 * UiPath.WebAPI.Activities
+* NErlichman.Framework.Activities
 
 ### For New Project ###
 To begin implementing take the following steps:

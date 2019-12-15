@@ -3,11 +3,12 @@
   "description": "Customized UiPath REFramework.",
   "main": "Main.xaml",
   "dependencies": {
+    "NErlichman.Framework.Activities": "[0.3.3]",
     "UiPath.Credentials.Activities": "[1.1.6479.13204]",
     "UiPath.Excel.Activities": "2.7.2",
     "UiPath.Mail.Activities": "1.7.2",
     "UiPath.System.Activities": "19.10.1",
-    "UiPath.UIAutomation.Activities": "19.10.1",
+    "UiPath.UIAutomation.Activities": "19.11.0",
     "UiPath.WebAPI.Activities": "1.4.4"
   },
   "webServices": [],

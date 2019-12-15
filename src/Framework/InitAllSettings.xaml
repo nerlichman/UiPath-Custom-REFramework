@@ -1,14 +1,14 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="InitiAllSettings" this:InitiAllSettings.in_ConfigFile="Data\Config.xlsx" this:InitiAllSettings.in_ConfigSheets="[{&quot;Settings&quot;, &quot;Credentials&quot;, &quot;Constants&quot;}]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="InitiAllSettings" this:InitiAllSettings.in_ConfigFile="Data\Config.xlsx" this:InitiAllSettings.in_ConfigSheets="[{&quot;Settings&quot;, &quot;Credentials&quot;, &quot;Constants&quot;}]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:nf="clr-namespace:NErlichman.Framework;assembly=NErlichman.Framework.Activities" xmlns:nfa="clr-namespace:NErlichman.Framework.Activities;assembly=NErlichman.Framework.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_ConfigFile" Type="InArgument(x:String)" />
     <x:Property Name="out_Config" Type="OutArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_ConfigSheets" Type="InArgument(s:String[])" />
-    <x:Property Name="in_SystemReserved" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="io_SystemReserved" Type="InOutArgument(nf:SystemReserved)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>324,907</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>324,1370</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetAllSettings_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -35,6 +35,7 @@
       <x:String>System.Runtime.InteropServices</x:String>
       <x:String>System.Xml.Serialization</x:String>
       <x:String>UiPath.Core.Activities</x:String>
+      <x:String>NErlichman.Framework</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -62,6 +63,8 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>NErlichman.Framework.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -69,7 +72,7 @@
       <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="This workflow outputs a settings Dictionary with key/value pairs to be used in the project. Settings are read from local config file then fetched from Orchestrator assets. &#xA;Assets will overwrite the config file settings&#xA;&#xA;It also creates the structure of folders:&#xA;  - &quot;Input&quot; as defined in SystemReserved dictionary&#xA;  - &quot;Output&quot; as defined in SystemReserved dictionary&#xA;  - &quot;Temp&quot; as defined in SystemReserved dictionary&#xA;  - &quot;Reports&quot; as defined in SystemReserved dictionary&#xA;  - &quot;Exceptions_Screenshots&quot; as defined in Config file" DisplayName="Get All Settings" sap:VirtualizedContainerService.HintSize="304,807" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow outputs a settings Dictionary with key/value pairs to be used in the project. Settings are read from local config file then fetched from Orchestrator assets. &#xA;Assets will overwrite the config file settings&#xA;&#xA;It also creates the structure of folders:&#xA;  - &quot;Input&quot; as defined in SystemReserved dictionary&#xA;  - &quot;Output&quot; as defined in SystemReserved dictionary&#xA;  - &quot;Temp&quot; as defined in SystemReserved dictionary&#xA;  - &quot;Reports&quot; as defined in SystemReserved dictionary&#xA;  - &quot;Exceptions_Screenshots&quot; as defined in Config file" DisplayName="Get All Settings" sap:VirtualizedContainerService.HintSize="304,1310" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -277,18 +280,19 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <Sequence DisplayName="Create Directories" sap:VirtualizedContainerService.HintSize="262,66" sap2010:WorkflowViewState.IdRef="Sequence_9">
+    <nfa:BuildFrameworkFolders DisplayName="Build Framework Folders" ExScreenshotsFolder="[If(out_Config.ContainsKey(&quot;ExScreenshotsFolder&quot;) And Not out_Config(&quot;ExScreenshotsFolder&quot;).ToString.Equals(&quot;&quot;), out_Config(&quot;ExScreenshotsFolder&quot;).ToString, Nothing)]" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="BuildFrameworkFolders_1" InputFolder="[If(out_Config.ContainsKey(&quot;InputFolder&quot;) And Not out_Config(&quot;InputFolder&quot;).ToString.Equals(&quot;&quot;), out_Config(&quot;InputFolder&quot;).ToString, Nothing)]" OutputFolder="[If(out_Config.ContainsKey(&quot;OutputFolder&quot;) And Not out_Config(&quot;OutputFolder&quot;).ToString.Equals(&quot;&quot;), out_Config(&quot;OutputFolder&quot;).ToString, Nothing)]" ReportsFolder="[If(out_Config.ContainsKey(&quot;ReportsFolder&quot;) And Not out_Config(&quot;ReportsFolder&quot;).ToString.Equals(&quot;&quot;), out_Config(&quot;ReportsFolder&quot;).ToString, Nothing)]" Result="[io_SystemReserved.Folders]" TempFolder="[If(out_Config.ContainsKey(&quot;TempFolder&quot;) And Not out_Config(&quot;TempFolder&quot;).ToString.Equals(&quot;&quot;), out_Config(&quot;TempFolder&quot;).ToString, Nothing)]" />
+    <Sequence DisplayName="Create Directories" sap:VirtualizedContainerService.HintSize="262,507" sap2010:WorkflowViewState.IdRef="Sequence_9">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Directory Input" sap:VirtualizedContainerService.HintSize="216,22.4" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[in_SystemReserved(&quot;InputFolder&quot;).ToString]" />
-      <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Directory Output" sap:VirtualizedContainerService.HintSize="216,22.4" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[in_SystemReserved(&quot;OutputFolder&quot;).ToString]" />
-      <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Directory Temp" sap:VirtualizedContainerService.HintSize="216,22.4" sap2010:WorkflowViewState.IdRef="CreateDirectory_3" Path="[in_SystemReserved(&quot;TempFolder&quot;).ToString]" />
-      <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Directory Reports" sap:VirtualizedContainerService.HintSize="216,22.4" sap2010:WorkflowViewState.IdRef="CreateDirectory_5" Path="[in_SystemReserved(&quot;ReportsFolder&quot;).ToString]" />
-      <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Directory Exceptions_Screenshots" sap:VirtualizedContainerService.HintSize="216,22.4" sap2010:WorkflowViewState.IdRef="CreateDirectory_4" Path="[out_Config(&quot;ExScreenshotsFolderPath&quot;).ToString]" />
+      <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Directory Input" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[io_SystemReserved.Folders.InputFolder]" />
+      <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Directory Output" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[io_SystemReserved.Folders.OutputFolder]" />
+      <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Directory Temp" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CreateDirectory_3" Path="[io_SystemReserved.Folders.TempFolder]" />
+      <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Directory Reports" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CreateDirectory_5" Path="[io_SystemReserved.Folders.ReportsFolder]" />
+      <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Directory Exceptions_Screenshots" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CreateDirectory_4" Path="[io_SystemReserved.Folders.ExScreenshotsFolder]" />
     </Sequence>
   </Sequence>
 </Activity>
