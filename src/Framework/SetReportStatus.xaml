@@ -1,11 +1,11 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="SetReportStatus" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_TransactionNumber" Type="InArgument(x:Int32)" />
-    <x:Property Name="in_ErrorMessage" Type="InArgument(x:String)" />
     <x:Property Name="io_DTReport" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="in_ReportFullPath" Type="InArgument(x:String)" />
-    <x:Property Name="in_MessageColName" Type="InArgument(x:String)" />
     <x:Property Name="in_StatusColName" Type="InArgument(x:String)" />
+    <x:Property Name="in_DescriptionColName" Type="InArgument(x:String)" />
+    <x:Property Name="in_ErrorDescription" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -64,7 +64,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart sap2010:Annotation.AnnotationText="This workflow updates the Status and Message for a row in the report DataTable, and updates the Excel file.}" DisplayName="SetReportStatus" sap:VirtualizedContainerService.HintSize="634,663" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+  <Flowchart sap2010:Annotation.AnnotationText="This workflow updates the Status and Description for a row in the report DataTable, and updates the Excel file.}" DisplayName="SetReportStatus" sap:VirtualizedContainerService.HintSize="634,663" sap2010:WorkflowViewState.IdRef="Flowchart_2">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -78,7 +78,7 @@
     <Flowchart.StartNode>
       <x:Reference>__ReferenceID3</x:Reference>
     </Flowchart.StartNode>
-    <FlowDecision x:Name="__ReferenceID3" Condition="[Not String.IsNullOrWhiteSpace(in_ErrorMessage)]" DisplayName="Hay Error?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+    <FlowDecision x:Name="__ReferenceID3" Condition="[Not String.IsNullOrWhiteSpace(in_ErrorDescription)]" DisplayName="Error?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -112,12 +112,12 @@
                 <InArgument x:TypeArguments="x:Object">["ERROR"]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign Status Message" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+            <Assign DisplayName="Assign Error Status Description" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_15">
               <Assign.To>
-                <OutArgument x:TypeArguments="x:Object">[io_DTReport(in_TransactionNumber-1)(in_MessageColName)]</OutArgument>
+                <OutArgument x:TypeArguments="x:Object">[io_DTReport(in_TransactionNumber-1)(in_DescriptionColName)]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:Object">[in_ErrorMessage]</InArgument>
+                <InArgument x:TypeArguments="x:String">[new String(in_ErrorDescription.Trim.Take(500).ToArray())]</InArgument>
               </Assign.Value>
             </Assign>
           </Sequence>
@@ -166,7 +166,7 @@
             </Assign>
             <Assign DisplayName="Assign Empty Status Message" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_17">
               <Assign.To>
-                <OutArgument x:TypeArguments="x:Object">[io_DTReport(in_TransactionNumber-1)(in_MessageColName)]</OutArgument>
+                <OutArgument x:TypeArguments="x:Object">[io_DTReport(in_TransactionNumber-1)(in_DescriptionColName)]</OutArgument>
               </Assign.To>
               <Assign.Value>
                 <InArgument x:TypeArguments="x:Object">[""]</InArgument>
