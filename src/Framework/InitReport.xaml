@@ -3,8 +3,8 @@
     <x:Property Name="in_ProcessData" Type="InArgument(sd:DataTable)" />
     <x:Property Name="out_DTReport" Type="OutArgument(sd:DataTable)" />
     <x:Property Name="in_StatusColName" Type="InArgument(x:String)" />
-    <x:Property Name="in_MessageColName" Type="InArgument(x:String)" />
     <x:Property Name="in_ReportFullPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_DescriptionColName" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -61,7 +61,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This workflow outputs a reporting DataTable with a row for each transaction from in_ProcessData. &#xA;This DataTable has 3 predefined columns: ID (row number), Status (OK/ERROR), Message. &#xA;&#xA;It also writes the DT to an Excel file." DisplayName="InitReporte" sap:VirtualizedContainerService.HintSize="591,1137" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow outputs a reporting DataTable with a row for each transaction from in_ProcessData. &#xA;This DataTable has 3 predefined columns: ID (row number), Status (OK/ERROR), Description. &#xA;&#xA;It also writes the DT to an Excel file." DisplayName="InitReporte" sap:VirtualizedContainerService.HintSize="591,1137" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="ID" Name="IdColName" />
     </Sequence.Variables>
@@ -71,7 +71,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BuildDataTable DataTable="[out_DTReport]" DisplayName="Build Data Table - DT_Report" sap:VirtualizedContainerService.HintSize="549,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;ID&quot; msdata:AutoIncrement=&quot;true&quot; type=&quot;xs:int&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;ID&gt;0&lt;/ID&gt;&#xA;  &lt;/TableName&gt;&#xA;&lt;/NewDataSet&gt;">
+    <ui:BuildDataTable DataTable="[out_DTReport]" DisplayName="Build Data Table - DT_Report" sap:VirtualizedContainerService.HintSize="549,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;ID&quot; msdata:AutoIncrement=&quot;true&quot; type=&quot;xs:int&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;      &lt;xs:unique name=&quot;Constraint1&quot;&gt;&#xA;        &lt;xs:selector xpath=&quot;.//TableName&quot; /&gt;&#xA;        &lt;xs:field xpath=&quot;ID&quot; /&gt;&#xA;      &lt;/xs:unique&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;ID&gt;0&lt;/ID&gt;&#xA;  &lt;/TableName&gt;&#xA;&lt;/NewDataSet&gt;">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -135,7 +135,7 @@
       </sap:WorkflowViewStateService.ViewState>
     </ui:FilterDataTable>
     <ui:AddDataColumn x:TypeArguments="x:String" Column="{x:Null}" AllowDBNull="False" AutoIncrement="False" ColumnName="[in_StatusColName]" DataTable="[out_DTReport]" DefaultValue="PENDING" DisplayName="Add Column Status" sap:VirtualizedContainerService.HintSize="549,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" MaxLength="100" Unique="False" />
-    <ui:AddDataColumn x:TypeArguments="x:String" Column="{x:Null}" AllowDBNull="True" AutoIncrement="False" ColumnName="[in_MessageColName]" DataTable="[out_DTReport]" DisplayName="Add Column Message" sap:VirtualizedContainerService.HintSize="549,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" MaxLength="100" Unique="False">
+    <ui:AddDataColumn x:TypeArguments="x:String" Column="{x:Null}" AllowDBNull="True" AutoIncrement="False" ColumnName="[in_DescriptionColName]" DataTable="[out_DTReport]" DisplayName="Add Column Description" sap:VirtualizedContainerService.HintSize="549,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" MaxLength="100" Unique="False">
       <ui:AddDataColumn.DefaultValue>
         <InArgument x:TypeArguments="x:String">
           <Literal x:TypeArguments="x:String" Value="" />
