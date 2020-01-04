@@ -38,8 +38,6 @@ Thumbs.db
 desktop.ini
 
 
-# UiPath generated files #
-src/.local/nuget.cache
-src/.local/nuget.cache.backup
-src/.local/PackageCache.json
-
+# UiPath generated folders #
+src/.local
+src/.settings
