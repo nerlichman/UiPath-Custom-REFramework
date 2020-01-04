@@ -135,7 +135,7 @@
       </sap:WorkflowViewStateService.ViewState>
     </ui:FilterDataTable>
     <ui:AddDataColumn x:TypeArguments="x:String" Column="{x:Null}" AllowDBNull="False" AutoIncrement="False" ColumnName="[in_StatusColName]" DataTable="[out_DTReport]" DefaultValue="PENDING" DisplayName="Add Column Status" sap:VirtualizedContainerService.HintSize="549,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" MaxLength="100" Unique="False" />
-    <ui:AddDataColumn x:TypeArguments="x:String" Column="{x:Null}" AllowDBNull="True" AutoIncrement="False" ColumnName="[in_DescriptionColName]" DataTable="[out_DTReport]" DisplayName="Add Column Description" sap:VirtualizedContainerService.HintSize="549,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" MaxLength="100" Unique="False">
+    <ui:AddDataColumn x:TypeArguments="x:String" Column="{x:Null}" AllowDBNull="True" AutoIncrement="False" ColumnName="[in_DescriptionColName]" DataTable="[out_DTReport]" DisplayName="Add Column Description" sap:VirtualizedContainerService.HintSize="549,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" MaxLength="500" Unique="False">
       <ui:AddDataColumn.DefaultValue>
         <InArgument x:TypeArguments="x:String">
           <Literal x:TypeArguments="x:String" Value="" />
