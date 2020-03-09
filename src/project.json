@@ -3,7 +3,7 @@
   "description": "Customized UiPath REFramework.",
   "main": "Main.xaml",
   "dependencies": {
-    "NErlichman.Framework.Activities": "[0.3.3]",
+    "NErlichman.Framework.Activities": "[1.0.0-preview]",
     "UiPath.Credentials.Activities": "[1.1.6479.13204]",
     "UiPath.Excel.Activities": "2.7.2",
     "UiPath.Mail.Activities": "1.7.2",
@@ -34,7 +34,7 @@
       "includeOriginalXaml": false,
       "privateWorkflows": []
     },
-    "fileInfos": []
+    "fileInfoCollection": []
   },
   "expressionLanguage": "VisualBasic"
 }
