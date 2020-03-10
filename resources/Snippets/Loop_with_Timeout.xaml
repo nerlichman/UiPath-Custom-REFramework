@@ -1,0 +1,91 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="LoopWithTimer" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="962,887" sap2010:WorkflowViewState.IdRef="LoopWithTimer_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="21">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="19">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Description: &#xD;&#xA;This template let developers quickly add a loop with timeout control.&#xD;&#xA;It uses a parallel activity to run the loop while also running a Delay activity with the defined timeout. If the delay ends before the loop, a TimeoutException is thrown, with   the defined timeoutExceptionMessage.&#xA;&#xA;##############&#xA;Deployment instructions: &#xA;Add the xaml to your Studio library for easy insertion of Loop_with_Timeout.&#xA;&#xA;After inserting:&#xA;This loop with timeout template doesn't need be used in a standalone workflow. &#xD;&#xA;&#xD;&#xA;You just need to add the template to your workflow, add desired activities to the loop and assign values to the following variables:&#xA;&#xA; + timeoutExceptionMessage &lt;String&gt; : the message for the TimeoutException thrown if the timeout is exceeded.&#xD;&#xA; + timeout &lt;TimeSpan&gt; : the amout of time allowed for the loop to execute before throwing an exception. Should be a TimeStamp, format: hh:mm:ss&#xD;&#xA;&#xD;&#xA;You can delete the &quot;loopCondition&quot; variable and replace it with your own condition, or assign the evaluation of your condition to &quot;loopCondition&quot; variable at the end of the loop.&#xA;&#xA;##############" DisplayName="Loop with timeout" sap:VirtualizedContainerService.HintSize="942,787" sap2010:WorkflowViewState.IdRef="Sequence_8">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="timeoutExceptionMessage" />
+      <Variable x:TypeArguments="x:TimeSpan" Default="10.00:00:02" Name="timeout" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Parallel DisplayName="Execute loop and control timeout" sap:VirtualizedContainerService.HintSize="900,368" sap2010:WorkflowViewState.IdRef="Parallel_3" CompletionCondition="True">
+      <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="484,322" sap2010:WorkflowViewState.IdRef="DoWhile_4">
+        <DoWhile.Variables>
+          <Variable x:TypeArguments="x:Boolean" Name="loopCondition" />
+        </DoWhile.Variables>
+        <DoWhile.Condition>[loopCondition]</DoWhile.Condition>
+        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,160" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:UiElementExists DisplayName="Element Exists" Exists="[loopCondition]" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+            <ui:UiElementExists.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="250" WaitForReady="NONE" />
+            </ui:UiElementExists.Target>
+          </ui:UiElementExists>
+        </Sequence>
+      </DoWhile>
+      <Sequence DisplayName="Check Timeout" sap:VirtualizedContainerService.HintSize="242,322" sap2010:WorkflowViewState.IdRef="Sequence_7">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Delay DisplayName="Delay timeout" Duration="[timeout]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Delay_5" />
+        <Throw DisplayName="Throw TimeoutException" Exception="[New TimeoutException(timeoutExceptionMessage)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_3" />
+      </Sequence>
+    </Parallel>
+  </Sequence>
+</Activity>
