@@ -1,13 +1,13 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="GetQueueMaxRetries" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="GetQueueMaxRetries" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:SystemReserved;assembly=SystemReserved" xmlns:s1="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
-    <x:Property Name="io_SystemReserved" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="io_SystemReserved" Type="InOutArgument(s:SystemReserved)" />
     <x:Property Name="io_Config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1492,1814</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1462,1843</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetQueueMaxRetries_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -53,6 +53,7 @@
       <x:String>UiPath.Web</x:String>
       <x:String>UiPath.Web.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
+      <x:String>SystemReserved</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -86,16 +87,18 @@
       <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>SystemReserved</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This workflow atempts to connect to the Orchestrator server and read the number of retries. This is necesarry for correct logging." DisplayName="GetQueueRetries" sap:VirtualizedContainerService.HintSize="1472,1714" sap2010:WorkflowViewState.IdRef="Sequence_7">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow atempts to connect to the Orchestrator server and read the number of retries. This is necesarry for correct logging." DisplayName="GetQueueRetries" sap:VirtualizedContainerService.HintSize="1472,1738" sap2010:WorkflowViewState.IdRef="Sequence_7">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[in_TransactionItem isNot Nothing AndAlso (in_TransactionItem.GetType is GetType(Uipath.Core.QueueItem))]" DisplayName="If TransactionItem is a QueueItem" sap:VirtualizedContainerService.HintSize="1430,1595" sap2010:WorkflowViewState.IdRef="If_6">
+    <If Condition="[in_TransactionItem isNot Nothing AndAlso (in_TransactionItem.GetType is GetType(Uipath.Core.QueueItem))]" DisplayName="If TransactionItem is a QueueItem" sap:VirtualizedContainerService.HintSize="1430,1615" sap2010:WorkflowViewState.IdRef="If_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -103,7 +106,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="We are working with a queue" sap:VirtualizedContainerService.HintSize="1123,1447" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence DisplayName="We are working with a queue" sap:VirtualizedContainerService.HintSize="1123,1465" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -111,21 +114,21 @@
           </sap:WorkflowViewStateService.ViewState>
           <Assign DisplayName="Is a QueueItem" sap:VirtualizedContainerService.HintSize="1081,60" sap2010:WorkflowViewState.IdRef="Assign_6">
             <Assign.To>
-              <OutArgument x:TypeArguments="x:Object">[io_SystemReserved.Item("isQueueItem")]</OutArgument>
+              <OutArgument x:TypeArguments="x:Boolean">[io_SystemReserved.IsQueueItem]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:Object">[True]</InArgument>
+              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
             </Assign.Value>
           </Assign>
           <Assign DisplayName="Get RetryNumber from Item" sap:VirtualizedContainerService.HintSize="1081,60" sap2010:WorkflowViewState.IdRef="Assign_7">
             <Assign.To>
-              <OutArgument x:TypeArguments="x:Object">[io_SystemReserved.Item("RetryNumber")]</OutArgument>
+              <OutArgument x:TypeArguments="x:Int32">[io_SystemReserved.RetryNumber]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:Object">[in_TransactionItem.RetryNo]</InArgument>
+              <InArgument x:TypeArguments="x:Int32">[in_TransactionItem.RetryNo]</InArgument>
             </Assign.Value>
           </Assign>
-          <If sap2010:Annotation.AnnotationText="Try to find information about the transaction we are processing by contacting Orchestrator server and requesting MaxRetryNumber" Condition="[cint(io_SystemReserved.Item(&quot;TransactionNumber&quot;)) = 1]" DisplayName="If first Transaction" sap:VirtualizedContainerService.HintSize="1081,1155" sap2010:WorkflowViewState.IdRef="If_5">
+          <If sap2010:Annotation.AnnotationText="Try to find information about the transaction we are processing by contacting Orchestrator server and requesting MaxRetryNumber" Condition="[io_SystemReserved.TransactionNumber = 1]" DisplayName="If first Transaction" sap:VirtualizedContainerService.HintSize="1081,1173" sap2010:WorkflowViewState.IdRef="If_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -134,7 +137,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <TryCatch sap2010:Annotation.AnnotationText="Note: this activity requires you to be authenticated with Orchestrator" DisplayName="Try to obtain queue information from Orchestrator" sap:VirtualizedContainerService.HintSize="936,980" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+              <TryCatch sap2010:Annotation.AnnotationText="Note: this activity requires you to be authenticated with Orchestrator" DisplayName="Try to obtain queue information from Orchestrator" sap:VirtualizedContainerService.HintSize="936,992" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -143,7 +146,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <TryCatch.Try>
-                  <Sequence DisplayName="Try to Communicate with server" sap:VirtualizedContainerService.HintSize="898,702" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <Sequence DisplayName="Try to Communicate with server" sap:VirtualizedContainerService.HintSize="898,706" sap2010:WorkflowViewState.IdRef="Sequence_5">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="Response" />
                       <Variable x:TypeArguments="x:Int32" Name="StatusCode" />
@@ -153,8 +156,8 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:OrchestratorHttpRequest JSONPayload="{x:Null}" ResponseHeaders="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Orchestrator HTTP Request" sap:VirtualizedContainerService.HintSize="856,22" sap2010:WorkflowViewState.IdRef="OrchestratorHttpRequest_2" Method="GET" RelativeEndpoint="[&quot;/odata/QueueProcessingRecords/UiPathODataSvc.RetrieveQueuesProcessingStatus()?$filter=QueueDefinitionName eq '&quot; + io_Config.Item(&quot;OrchestratorQueueName&quot;).ToString + &quot;'&quot;]" Result="[Response]" StatusCode="[StatusCode]" />
-                    <If Condition="[StatusCode = 200]" DisplayName="If response is good, deserialize" sap:VirtualizedContainerService.HintSize="856,548" sap2010:WorkflowViewState.IdRef="If_4">
+                    <ui:OrchestratorHttpRequest FolderPath="{x:Null}" JSONPayload="{x:Null}" ResponseHeaders="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Orchestrator HTTP Request" sap:VirtualizedContainerService.HintSize="856,22" sap2010:WorkflowViewState.IdRef="OrchestratorHttpRequest_2" Method="GET" RelativeEndpoint="[&quot;/odata/QueueProcessingRecords/UiPathODataSvc.RetrieveQueuesProcessingStatus()?$filter=QueueDefinitionName eq '&quot; + io_Config.Item(&quot;OrchestratorQueueName&quot;).ToString + &quot;'&quot;]" Result="[Response]" StatusCode="[StatusCode]" />
+                    <If Condition="[StatusCode = 200]" DisplayName="If response is good, deserialize" sap:VirtualizedContainerService.HintSize="856,552" sap2010:WorkflowViewState.IdRef="If_4">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -162,7 +165,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence DisplayName="Deserialize and read MaxRetryNumber settings from queue" sap:VirtualizedContainerService.HintSize="611,400" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <Sequence DisplayName="Deserialize and read MaxRetryNumber settings from queue" sap:VirtualizedContainerService.HintSize="611,402" sap2010:WorkflowViewState.IdRef="Sequence_4">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="njl:JObject" Name="JsonQueueProcessingStatus" />
                           </Sequence.Variables>
@@ -172,7 +175,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize json - parse POST response" sap:VirtualizedContainerService.HintSize="569,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_3" JsonObject="[JsonQueueProcessingStatus]" JsonString="[Response]" />
-                          <If Condition="[string.Compare(JsonQueueProcessingStatus.SelectToken(&quot;value(0).QueueDefinitionAcceptAutomaticallyRetry&quot;).ToString, &quot;true&quot;, true) = 0]" DisplayName="If Queue AutoRetry is enabled, MaxRetryNumber becomes the Queue Retry number" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_7">
+                          <If Condition="[string.Compare(JsonQueueProcessingStatus.SelectToken(&quot;value(0).QueueDefinitionAcceptAutomaticallyRetry&quot;).ToString, &quot;true&quot;, true) = 0]" DisplayName="If Queue AutoRetry is enabled, MaxRetryNumber becomes the Queue Retry number" sap:VirtualizedContainerService.HintSize="569,210" sap2010:WorkflowViewState.IdRef="If_7">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -223,16 +226,16 @@
                       <ui:LogMessage DisplayName="Log Orchestrator error" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[&quot;Orchestrator API encountered exception &quot;+exception.Message+&quot; at Source &quot; + exception.Source]" />
                     </ActivityAction>
                   </Catch>
-                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="902,22" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                  <Catch x:TypeArguments="s1:Exception" sap:VirtualizedContainerService.HintSize="902,22" sap2010:WorkflowViewState.IdRef="Catch`1_4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ActivityAction x:TypeArguments="s:Exception">
+                    <ActivityAction x:TypeArguments="s1:Exception">
                       <ActivityAction.Argument>
-                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                        <DelegateInArgument x:TypeArguments="s1:Exception" Name="exception" />
                       </ActivityAction.Argument>
                       <ui:LogMessage DisplayName="Log general error" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Error" Message="[&quot;Exception &quot;+exception.Message + &quot; at Source &quot;+exception.Source]" />
                     </ActivityAction>
@@ -246,10 +249,10 @@
       <If.Else>
         <Assign DisplayName="Not a QueueItem" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_10">
           <Assign.To>
-            <OutArgument x:TypeArguments="x:Object">[io_SystemReserved.Item("isQueueItem")]</OutArgument>
+            <OutArgument x:TypeArguments="x:Boolean">[io_SystemReserved.IsQueueItem]</OutArgument>
           </Assign.To>
           <Assign.Value>
-            <InArgument x:TypeArguments="x:Object">[false]</InArgument>
+            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
           </Assign.Value>
         </Assign>
       </If.Else>
