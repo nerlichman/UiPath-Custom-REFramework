@@ -1,9 +1,9 @@
 {
   "name": "Custom REFramework",
-  "description": "Customized UiPath REFramework.",
+  "description": "Customized REFramework that uses SystemReserved entity.",
   "main": "Main.xaml",
   "dependencies": {
-    "SystemReserved.Activities": "[1.0.0]",
+    "SystemReserved.Activities": "[1.0.1]",
     "UiPath.Credentials.Activities": "[1.1.6479.13204]",
     "UiPath.Excel.Activities": "2.7.2",
     "UiPath.Mail.Activities": "1.7.2",
@@ -13,7 +13,7 @@
   },
   "webServices": [],
   "schemaVersion": "4.0",
-  "studioVersion": "19.10.0.111",
+  "studioVersion": "19.10.0",
   "projectVersion": "1.0.0",
   "runtimeOptions": {
     "autoDispose": false,
