@@ -1,1 +1,1 @@
-placeholder for github
+ProcessLogicLayer folder should be used to store all workflows that belong to the the Process Logic Layer of the framework
