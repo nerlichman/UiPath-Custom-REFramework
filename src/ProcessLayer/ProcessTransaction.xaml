@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1179,1099</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1180,2140</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -61,7 +61,7 @@
       <AssemblyReference>SystemReserved</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <TryCatch sap2010:Annotation.AnnotationText="##Business Process Layer##&#xA;Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. " DisplayName="wbProcess" sap:VirtualizedContainerService.HintSize="458,994" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+  <TryCatch sap2010:Annotation.AnnotationText="##Business Process Layer##&#xA;Description: Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="wbProcess" sap:VirtualizedContainerService.HintSize="714,2035" sap2010:WorkflowViewState.IdRef="TryCatch_1">
     <TryCatch.Variables>
       <Variable x:TypeArguments="x:String" Name="WbPath" />
       <Variable x:TypeArguments="x:String" Name="WbName" />
@@ -230,10 +230,10 @@
       </Sequence>
     </TryCatch.Try>
     <TryCatch.Catches>
-      <Catch x:TypeArguments="s1:Exception" sap:VirtualizedContainerService.HintSize="424,760" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+      <Catch x:TypeArguments="s1:Exception" sap:VirtualizedContainerService.HintSize="680,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
@@ -241,7 +241,7 @@
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="s1:Exception" Name="exception" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Catch, log and rethrow" sap:VirtualizedContainerService.HintSize="418,691" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Catch, log and rethrow" sap:VirtualizedContainerService.HintSize="418,634" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>

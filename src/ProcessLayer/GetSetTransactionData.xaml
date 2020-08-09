@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>753,1491</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1180,1121</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetTransactionData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -65,7 +65,7 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <TryCatch sap2010:Annotation.AnnotationText="##Data Layer##&#xA;Description: Get data from spreadsheets, databases, email, web API or UiPath server queues.&#xA;&#xA;- in_TransactionNumber variable holds the current transaction number&#xA;- in_RetryNumber holds the current retry number. &#xA;- Incrementation of these two counters is done at the framework layer, above this point. However, you control this process directly by configuring the MaxRetryNumber in the Config file.&#xA;- You control the end of the process directly, by setting io_TransactionItem to Nothing.&#xA;&#xA;For a linear process (not repetitive), set out_TransactionItem only for in_TransactionNumber 1 - first and only transaction. &#xA;If the process is repeatable, set io_TransactionData once for in_TransactionNumber 1, then assign a new io_TransactionItem by using the in_TransactionNumber to index io_TransactionData.  " DisplayName="workblock GetTransactionData" sap:VirtualizedContainerService.HintSize="733,1391" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+  <TryCatch sap2010:Annotation.AnnotationText="##Data Layer##&#xA;Description: Get data from spreadsheets, databases, email, web API or UiPath server queues.&#xA;&#xA;- in_TransactionNumber variable holds the current transaction number&#xA;- in_RetryNumber holds the current retry number. &#xA;- Incrementation of these two counters is done at the framework layer, above this point. However, you control this process directly by configuring the MaxRetryNumber in the Config file.&#xA;- You control the end of the process directly, by setting io_TransactionItem to Nothing.&#xA;&#xA;For a linear process (not repetitive), set out_TransactionItem only for in_TransactionNumber 1 - first and only transaction. &#xA;If the process is repeatable, set io_TransactionData once for in_TransactionNumber 1, then assign a new io_TransactionItem by using the in_TransactionNumber to index io_TransactionData.  " DisplayName="workblock GetTransactionData" sap:VirtualizedContainerService.HintSize="458,1056" sap2010:WorkflowViewState.IdRef="TryCatch_1">
     <TryCatch.Variables>
       <Variable x:TypeArguments="s:DateTime" Name="WbStartTime" />
       <Variable x:TypeArguments="x:String" Name="WbName" />
@@ -78,7 +78,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <TryCatch.Try>
-      <Sequence DisplayName="Try processing GetSetTransactionData" sap:VirtualizedContainerService.HintSize="695,972" sap2010:WorkflowViewState.IdRef="Sequence_8">
+      <Sequence DisplayName="Try processing GetSetTransactionData" sap:VirtualizedContainerService.HintSize="695,1637" sap2010:WorkflowViewState.IdRef="Sequence_8">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -92,7 +92,7 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap2010:Annotation.AnnotationText="Edit to assign a name of your choosing" DisplayName="Assign workblock its name" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="Assign_9">
+          <Assign sap2010:Annotation.AnnotationText="Edit to assign a name of your choosing" DisplayName="Assign workblock its name" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="Assign_9">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[wbName]</OutArgument>
             </Assign.To>
@@ -118,7 +118,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <Assign sap2010:Annotation.AnnotationText="Assign template start time. " DisplayName="Assign start time" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="Assign_11">
+          <Assign sap2010:Annotation.AnnotationText="Assign template start time. " DisplayName="Assign start time" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="Assign_11">
             <Assign.To>
               <OutArgument x:TypeArguments="s:DateTime">[wbStartTime]</OutArgument>
             </Assign.To>
@@ -147,7 +147,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:AddLogFields>
-          <ui:AddLogFields sap2010:Annotation.AnnotationText="Publish input fields" DisplayName="Add log fields wb startup" sap:VirtualizedContainerService.HintSize="334,49" sap2010:WorkflowViewState.IdRef="AddLogFields_2">
+          <ui:AddLogFields sap2010:Annotation.AnnotationText="Publish input fields" DisplayName="Add log fields wb startup" sap:VirtualizedContainerService.HintSize="334,53" sap2010:WorkflowViewState.IdRef="AddLogFields_2">
             <ui:AddLogFields.Fields>
               <InArgument x:TypeArguments="x:String" x:Key="transactionNumber">[in_TransactionNumber.ToString]</InArgument>
             </ui:AddLogFields.Fields>
@@ -159,7 +159,7 @@
           </ui:AddLogFields>
           <ui:LogMessage DisplayName="Log execution started message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[wbPath + &quot; execution started.&quot;]" />
         </Sequence>
-        <Sequence sap2010:Annotation.AnnotationText="#Write business code here#" DisplayName="Process" sap:VirtualizedContainerService.HintSize="653,419" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence sap2010:Annotation.AnnotationText="#Write business code here#" DisplayName="Process" sap:VirtualizedContainerService.HintSize="653,423" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -191,7 +191,7 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Assign sap2010:Annotation.AnnotationText="No data left" DisplayName="Assign Transaction Item, Nothing" sap:VirtualizedContainerService.HintSize="262,87" sap2010:WorkflowViewState.IdRef="Assign_12">
+              <Assign sap2010:Annotation.AnnotationText="No data left" DisplayName="Assign Transaction Item, Nothing" sap:VirtualizedContainerService.HintSize="262,91" sap2010:WorkflowViewState.IdRef="Assign_12">
                 <Assign.To>
                   <OutArgument x:TypeArguments="sd:DataRow">[out_TransactionItem]</OutArgument>
                 </Assign.To>
@@ -242,10 +242,10 @@
       </Sequence>
     </TryCatch.Try>
     <TryCatch.Catches>
-      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="699,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="424,627" sap2010:WorkflowViewState.IdRef="Catch`1_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
@@ -283,7 +283,7 @@
               </ui:AddLogFields>
               <ui:LogMessage DisplayName="Log execution failed message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[wbPath + &quot; execution ended with exception message: &quot;+exception.Message]" />
             </Sequence>
-            <Rethrow sap:VirtualizedContainerService.HintSize="376,22" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+            <Rethrow DisplayName="Rethrow Exception" sap:VirtualizedContainerService.HintSize="376,22" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
           </Sequence>
         </ActivityAction>
       </Catch>
